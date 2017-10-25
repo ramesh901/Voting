@@ -17,7 +17,7 @@ function loadSurvey() {
         console.log(tasks[1]["title"])
         let tasksHTML = ''
         for (let i = 0; i < tasks.length; ++i) {
-            tasksHTML += '<a href="#">' + tasks[i]["title"] + '</a> <br>'
+            tasksHTML += '<a href=' + tasks[i]["id"] + '>' + tasks[i]["title"] + '</a> <br>'
         }
         document.getElementById('adminSummary').innerHTML = tasksHTML
     console.log("I am inside")
@@ -36,6 +36,10 @@ function loadSurvey() {
         admin.appendChild(br)
     })*/
 })
+}
+
+function loadUniqueSurvey() {
+    
 }
 
 window.onload = loadSurvey

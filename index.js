@@ -18,11 +18,17 @@ http.createServer(function (req, res) {
     
     let pathname = '.' + url.parse(req.url).pathname
     console.log('pathname is',pathname)
+    console.log(typeof url.parse(req.url).pathname)
     const mimeType = {
         '.html': 'text/html',
         '.json': 'application/json',
         '.css': 'text/css'
-    }
+    } 
+    /* In pathname we have './2'. Now pick 2 alone and find the id in data.json file if its there then
+    print that object */
+    var dynamicID = url.parse(req.url).pathname.substring(1)
+    
+
    
     if (fs.statSync(pathname).isDirectory()) {
         pathname += 'adminSummary.html'
@@ -38,3 +44,4 @@ http.createServer(function (req, res) {
         }
     })
 }).listen(3012)
+console.log("listening 3012")
