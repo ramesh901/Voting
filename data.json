@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "title": "who is your favorite cricket player?",
+    "options": ["Dhoni","Kohli"]
+  },
+  {
+    "id": 2,
+    "title": "who is your favourite national leader?",
+    "options": ["Gandhi","Nehru","Patel"]
+  }
+]
