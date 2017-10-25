@@ -12,7 +12,14 @@ function httpGet(url, callback) {
 function loadSurvey() {
     httpGet('./data.json', function (s) {
         tasks = JSON.parse(s)
+        console.log(tasks)
+        console.log("task length",tasks.length)
+        console.log(tasks[1]["title"])
         let tasksHTML = ''
+        for (let i = 0; i < tasks.length; ++i) {
+            tasksHTML += '<a href="#">' + tasks[i]["title"] + '</a> <br>'
+        }
+        document.getElementById('adminSummary').innerHTML = tasksHTML
     console.log("I am inside")
     /*
     console.log(content)
