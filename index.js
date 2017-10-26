@@ -12,6 +12,7 @@ const url = require('url')
 const fs = require('fs')
 
 const path = require('path')
+const data = require('./data.json')
 
 
 http.createServer(function (req, res) {
@@ -26,8 +27,22 @@ http.createServer(function (req, res) {
     } 
     /* In pathname we have './2'. Now pick 2 alone and find the id in data.json file if its there then
     print that object */
+
     var dynamicID = url.parse(req.url).pathname.substring(1)
+    var findObject = data.filter(function(item) {
+        console.log("item id",item.id,item["id"],dynamicID)
+
+        return (String(item.id) === dynamicID)
+
+    }  )
+    console.log("findObject is",findObject)
+    console.log("data is",data)
+    if(findObject.length !== 0){
+        //res.write(findObject)
+    }
     
+
+
 
    
     if (fs.statSync(pathname).isDirectory()) {
@@ -42,6 +57,6 @@ http.createServer(function (req, res) {
             res.setHeader('Content-type', mimeType[ext] || 'text/plain')
             res.end(data)
         }
-    })
+    }) 
 }).listen(3012)
 console.log("listening 3012")
